@@ -140,7 +140,7 @@ if classify_button:
         
         - **Model:** Logistic Regression
         - **Features:** TF-IDF
-        - **Training Data:** Small local demo dataset for learning and testing
+        - **Training Data:** UCI SMS Spam Collection (5,574 messages)
         - **Note:** This is a simple educational project, not a production spam filter.
         """)
 

@@ -4,7 +4,7 @@ This is a small machine learning project I built to learn the full flow of a tex
 
 ## Overview
 
-The project uses a small local SMS-style dataset and a simple TF-IDF + Logistic Regression pipeline. The goal is not to build a production-level spam filter. The goal is to understand the fundamentals of text classification and how a basic supervised model behaves on a real, small dataset.
+The project uses the full UCI SMS Spam Collection dataset (5,574 real SMS messages) and a simple TF-IDF + Logistic Regression pipeline. The goal is not to build a production-level spam filter. The goal is to understand the fundamentals of text classification and how a basic supervised model behaves on a real, realistically-sized dataset.
 
 I wanted to work through the practical steps of an ML project without skipping the details: preprocessing text, turning words into numerical features, training a classifier, checking metrics, saving the model, and exposing it through a simple interface.
 
@@ -63,9 +63,9 @@ This is the basic flow I wanted to understand first before moving on to more adv
 
 ## Results
 
-The current repo uses a small demo dataset for learning and validation. On that dataset, the model achieves roughly 66.67% accuracy.
+The repo now uses the full UCI SMS Spam Collection (5,574 messages, 747 spam / 4,827 ham). After preprocessing and deduplication (5,171 messages remain), the model achieves roughly 96.91% accuracy, 86.67% precision, and 89.31% recall on a held-out 20% test set (1,035 messages).
 
-That result is not meant to be interpreted as a strong production spam classifier. It is a useful baseline for a first ML project, and it helps me understand how the workflow works in practice. The small dataset size and limited variety mean the result is not representative of a real-world spam filtering system.
+That result is still not meant to be interpreted as a production-grade spam classifier, but it is a much more realistic baseline than the earlier 43-message demo, and it helps demonstrate how the workflow behaves on a dataset of meaningful size and variety.
 
 ## Running the project
 
@@ -130,14 +130,13 @@ I also learned that testing is part of ML work, not something to add only after 
 
 ## Limitations
 
-- The dataset is intentionally small.
-- The model will not generalize well to real-world spam detection.
+- The dataset, while much larger now (5,574 messages), is still a single public source from 2011-era SMS text.
+- The model may not generalize to modern spam patterns (email, MMS, other languages).
 - This is a learning exercise, not a production-grade classifier.
-- The results are not representative of a real spam filtering system.
 
 ## Future improvements
 
-- train on a larger, more realistic dataset
+- combine additional spam datasets for more variety
 - compare Logistic Regression with Naive Bayes or a linear SVM
 - improve text preprocessing and cleaning routines
 - experiment with class imbalance handling
